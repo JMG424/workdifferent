@@ -4,510 +4,213 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work Different.</title>
-<meta name="description" content="The people who changed the world worked differently. So can you.">
+<meta name="description" content="The people who changed the world worked differently.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600;1,9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;1,500;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink:        #0a0a0c;
-    --ink-2:      #131316;
-    --ink-3:      #1c1c20;
-    --cream:      #ece6d6;
-    --cream-2:    #c8c2b3;
-    --cream-3:    #7a7568;
-    --warm:       #d97a3c;
-    --hairline:   #28282d;
-    --serif:      "Fraunces", "Times New Roman", serif;
-    --mono:       "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --black:   #000000;
+    --white:   #ffffff;
+    --muted:   #8a8a8a;
+    --dim:     #4a4a4a;
+    --warm:    #d97a3c;
+    --serif:   "EB Garamond", "Times New Roman", serif;
+    --sans:    "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
   body {
-    background: var(--ink);
-    color: var(--cream);
-    font-family: var(--mono);
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--sans);
     font-size: 15px;
-    line-height: 1.55;
+    line-height: 1.5;
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
-  ::selection { background: var(--warm); color: var(--ink); }
+  ::selection { background: var(--white); color: var(--black); }
   img, video { display: block; max-width: 100%; }
 
-  /* film grain */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.92 0 0 0 0 0.90 0 0 0 0 0.84 0 0 0 0.05 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    z-index: 100;
-    mix-blend-mode: overlay;
-    opacity: 0.55;
-  }
-
   .container {
-    max-width: 1320px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 32px;
   }
 
-  /* ─── NAV ──────────────────────────────────────────────── */
+  /* ─── NAV (minimal) ───────────────────────────────────── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 50;
-    backdrop-filter: blur(14px);
-    background: rgba(10,10,12,0.65);
-    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0;
   }
   nav .row {
-    max-width: 1320px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 16px 32px;
+    padding: 0 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .brand {
-    font-family: var(--mono);
+  .wordmark-small {
+    font-family: var(--serif);
+    font-style: italic;
     font-weight: 700;
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+  .wordmark-small .dot { color: var(--warm); }
+  .nav-link {
+    font-family: var(--sans);
     font-size: 13px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-  .brand span { color: var(--warm); }
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    font-size: 12px;
-  }
-  .nav-right a {
-    color: var(--cream-2);
+    color: var(--muted);
     text-decoration: none;
-    border-bottom: 1px dotted transparent;
-    padding-bottom: 2px;
-    transition: all 0.2s;
+    font-weight: 400;
+    transition: color 0.2s;
   }
-  .nav-right a:hover { color: var(--cream); border-bottom-color: var(--cream-3); }
-  .join-link { color: var(--cream) !important; }
+  .nav-link:hover { color: var(--white); }
 
   /* ─── HERO ─────────────────────────────────────────────── */
   .hero {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 160px 0 80px;
-    position: relative;
+    text-align: center;
+    padding: 120px 32px 80px;
   }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .hero-text { position: relative; z-index: 2; }
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--cream-3);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .eyebrow::before {
-    content: "";
-    display: inline-block;
-    width: 32px;
-    height: 1px;
-    background: var(--warm);
-  }
-  .hero h1 {
+  .wordmark {
     font-family: var(--serif);
-    font-weight: 600;
     font-style: italic;
-    font-size: clamp(80px, 14vw, 200px);
-    line-height: 0.92;
-    letter-spacing: -0.035em;
-    margin-bottom: 36px;
-  }
-  .hero h1 .dot { color: var(--warm); font-style: normal; }
-  .hero p.sub {
-    font-family: var(--mono);
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--cream-2);
-    max-width: 42ch;
-    margin-bottom: 0;
-  }
-
-  /* hero featured reel */
-  .hero-reel {
-    aspect-ratio: 4 / 5;
-    background: var(--ink-2);
-    border: 1px solid var(--hairline);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-reel video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .hero-reel-caption {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--cream-2);
-    background: rgba(10,10,12,0.7);
-    backdrop-filter: blur(6px);
-    padding: 6px 10px;
-    z-index: 2;
-  }
-  .hero-reel-caption::before { content: "// "; color: var(--warm); }
-
-  @media (max-width: 920px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-    .hero-reel { max-width: 320px; }
-  }
-
-  /* ─── MARQUEE ─────────────────────────────────────────── */
-  .marquee {
-    overflow: hidden;
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
-    padding: 22px 0;
-    background: var(--ink);
-  }
-  .marquee-track {
-    display: flex;
-    gap: 56px;
+    font-weight: 700;
+    font-size: clamp(64px, 14vw, 200px);
+    line-height: 1;
+    letter-spacing: -0.025em;
     white-space: nowrap;
-    animation: scroll 48s linear infinite;
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 600;
-    font-size: 22px;
-    color: var(--cream-2);
+    margin-bottom: 48px;
   }
-  .marquee-track span { display: inline-flex; align-items: center; gap: 56px; }
-  .marquee-track span::after {
-    content: "✦";
-    color: var(--warm);
-    font-style: normal;
-    font-size: 16px;
-  }
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+  .wordmark .dot { color: var(--warm); font-style: normal; }
+  .hero .sub {
+    font-family: var(--sans);
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 48ch;
+    margin: 0 auto;
+    line-height: 1.55;
   }
 
-  /* ─── THESIS ──────────────────────────────────────────── */
-  .thesis {
-    padding: 160px 0;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .thesis-eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--warm);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-  }
-  .thesis h2 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-style: italic;
-    font-size: clamp(36px, 5vw, 72px);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    max-width: 24ch;
-    margin-bottom: 56px;
-  }
-  .thesis h2 em { font-style: normal; color: var(--warm); }
-  .thesis-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: start;
-  }
-  .thesis-grid p {
-    font-family: var(--mono);
-    color: var(--cream-2);
-    font-size: 15px;
-    line-height: 1.7;
-  }
-  .thesis-grid p + p { margin-top: 24px; }
-  @media (max-width: 800px) {
-    .thesis-grid { grid-template-columns: 1fr; gap: 36px; }
-  }
+  /* fade-in */
+  .reveal { opacity: 0; animation: rev 1.4s ease 0.2s forwards; }
+  .reveal.d2 { animation-delay: 0.6s; }
+  @keyframes rev { to { opacity: 1; } }
 
   /* ─── GALLERY ─────────────────────────────────────────── */
-  .gallery {
-    padding: 120px 0 160px;
-  }
-  .gallery-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 80px;
-    gap: 48px;
-  }
-  .gallery-head h2 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-style: italic;
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    max-width: 16ch;
-  }
-  .gallery-head h2 em { font-style: normal; color: var(--warm); }
-  .gallery-head .count {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--cream-3);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    padding-bottom: 16px;
-  }
-
+  .gallery { padding: 60px 0 160px; }
   .reels {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    gap: 8px;
   }
   .reel {
     aspect-ratio: 4 / 5;
-    background: var(--ink-2);
-    border: 1px solid var(--hairline);
-    position: relative;
+    background: var(--black);
     overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.4s ease, border-color 0.3s;
+    position: relative;
   }
-  .reel:hover { border-color: var(--warm); transform: translateY(-4px); }
   .reel video {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .reel-label {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--cream-2);
-    background: rgba(10,10,12,0.75);
-    backdrop-filter: blur(6px);
-    padding: 6px 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .reel-label .name::before { content: "// "; color: var(--warm); }
-  .reel-label .dates { color: var(--cream-3); }
-
   @media (max-width: 1100px) { .reels { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 700px) { .reels { grid-template-columns: repeat(2, 1fr); } .gallery-head { flex-direction: column; align-items: flex-start; } }
-
-  /* ─── PHILOSOPHY ──────────────────────────────────────── */
-  .philosophy {
-    background: var(--ink-2);
-    border-top: 1px solid var(--hairline);
-    border-bottom: 1px solid var(--hairline);
-    padding: 160px 0;
-  }
-  .philosophy-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-  }
-  .belief {
-    background: var(--ink-2);
-    padding: 56px 40px;
-    transition: background 0.3s;
-  }
-  .belief:hover { background: var(--ink-3); }
-  .belief-num {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--warm);
-    letter-spacing: 0.18em;
-    margin-bottom: 32px;
-  }
-  .belief h3 {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-style: italic;
-    font-size: 28px;
-    line-height: 1.15;
-    margin-bottom: 20px;
-    color: var(--cream);
-  }
-  .belief p { color: var(--cream-2); font-size: 14px; }
-  @media (max-width: 900px) {
-    .philosophy-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 640px)  { .reels { grid-template-columns: repeat(2, 1fr); } }
 
   /* ─── MANIFESTO ───────────────────────────────────────── */
   .manifesto {
-    padding: 180px 0;
+    padding: 160px 0 200px;
     text-align: center;
   }
-  .manifesto p {
+  .manifesto-text {
     font-family: var(--serif);
-    font-weight: 600;
     font-style: italic;
-    font-size: clamp(28px, 4.5vw, 52px);
-    line-height: 1.25;
-    letter-spacing: -0.015em;
-    max-width: 22ch;
-    margin: 0 auto 32px;
-    color: var(--cream);
+    font-weight: 500;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.4;
+    color: var(--white);
+    max-width: 30ch;
+    margin: 0 auto;
   }
-  .manifesto p:last-of-type {
-    color: var(--warm);
-    font-style: normal;
-    margin-bottom: 0;
-  }
-  .manifesto-divider {
-    width: 60px;
-    height: 1px;
-    background: var(--warm);
-    margin: 48px auto;
-  }
+  .manifesto-text p { margin-bottom: 18px; }
+  .manifesto-text p:last-of-type { margin-bottom: 0; }
 
   /* ─── CLOSING ─────────────────────────────────────────── */
   .closing {
-    padding: 200px 0;
-    border-top: 1px solid var(--hairline);
+    padding: 0 0 200px;
     text-align: center;
-    position: relative;
-  }
-  .closing .eyebrow {
-    justify-content: center;
-    margin-bottom: 36px;
   }
   .closing h2 {
     font-family: var(--serif);
-    font-weight: 600;
     font-style: italic;
-    font-size: clamp(60px, 11vw, 160px);
-    line-height: 0.92;
-    letter-spacing: -0.035em;
-    margin-bottom: 36px;
+    font-weight: 700;
+    font-size: clamp(44px, 8vw, 96px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 48px;
   }
   .closing h2 .dot { color: var(--warm); font-style: normal; }
-  .closing p {
-    color: var(--cream-2);
-    max-width: 48ch;
-    margin: 0 auto 56px;
-    font-size: 15px;
-  }
   .cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    font-family: var(--mono);
+    display: inline-block;
+    font-family: var(--sans);
     font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 700;
-    background: var(--cream);
-    color: var(--ink);
-    padding: 22px 36px;
+    font-weight: 500;
+    color: var(--black);
+    background: var(--white);
+    padding: 18px 36px;
     text-decoration: none;
-    border: 1px solid var(--cream);
-    transition: all 0.2s;
+    border-radius: 100px;
+    transition: opacity 0.2s, transform 0.2s;
   }
-  .cta:hover {
-    background: var(--warm);
-    border-color: var(--warm);
-    transform: translateY(-2px);
+  .cta:hover { opacity: 0.85; transform: translateY(-1px); }
+  .cta-secondary {
+    display: inline-block;
+    margin-left: 24px;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 18px 0;
+    transition: color 0.2s;
   }
-  .cta::after { content: "→"; transition: transform 0.2s; }
-  .cta:hover::after { transform: translateX(6px); }
+  .cta-secondary:hover { color: var(--white); }
 
   /* ─── FOOTER ──────────────────────────────────────────── */
   footer {
-    background: var(--ink);
-    padding: 64px 0 40px;
-    border-top: 1px solid var(--hairline);
+    padding: 48px 0 40px;
+    border-top: 1px solid var(--dim);
   }
   footer .row {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 32px;
-    margin-bottom: 48px;
-  }
-  footer .left .brand { margin-bottom: 12px; font-size: 13px; }
-  footer .left p {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 18px;
-    color: var(--cream-2);
-    max-width: 28ch;
-  }
-  footer .links {
-    display: flex;
-    gap: 32px;
-    font-family: var(--mono);
+    align-items: center;
+    font-family: var(--sans);
     font-size: 12px;
-    color: var(--cream-3);
-    letter-spacing: 0.06em;
-  }
-  footer .links a { color: var(--cream-2); text-decoration: none; }
-  footer .links a:hover { color: var(--warm); }
-  footer .bottom {
-    border-top: 1px solid var(--hairline);
-    padding-top: 28px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--cream-3);
-    letter-spacing: 0.06em;
-    display: flex;
-    justify-content: space-between;
+    color: var(--muted);
     flex-wrap: wrap;
     gap: 16px;
   }
 
-  /* fade-in reveals */
-  .reveal { opacity: 0; transform: translateY(24px); animation: rev 1s ease forwards; }
-  .reveal.d1 { animation-delay: 0.05s; }
-  .reveal.d2 { animation-delay: 0.2s; }
-  .reveal.d3 { animation-delay: 0.35s; }
-  .reveal.d4 { animation-delay: 0.5s; }
-  @keyframes rev { to { opacity: 1; transform: translateY(0); } }
-
-  /* email modal */
+  /* ─── MODAL ───────────────────────────────────────────── */
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(10,10,12,0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.92);
     z-index: 200;
     display: none;
     align-items: center;
@@ -516,12 +219,13 @@
   }
   .modal-backdrop.open { display: flex; }
   .modal {
-    background: var(--ink-2);
-    border: 1px solid var(--hairline);
+    background: var(--black);
+    border: 1px solid var(--dim);
     padding: 56px 48px;
-    max-width: 480px;
+    max-width: 460px;
     width: 100%;
     position: relative;
+    text-align: center;
   }
   .modal .close-x {
     position: absolute;
@@ -529,194 +233,100 @@
     right: 20px;
     background: none;
     border: none;
-    color: var(--cream-3);
+    color: var(--muted);
     font-size: 22px;
     cursor: pointer;
-    font-family: var(--mono);
-  }
-  .modal .close-x:hover { color: var(--cream); }
-  .modal-eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--warm);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
+    font-family: var(--sans);
   }
   .modal h3 {
     font-family: var(--serif);
-    font-weight: 600;
     font-style: italic;
+    font-weight: 700;
     font-size: 32px;
     line-height: 1.15;
-    margin-bottom: 12px;
-    color: var(--cream);
+    margin-bottom: 16px;
   }
   .modal p {
-    color: var(--cream-2);
+    color: var(--muted);
     font-size: 14px;
     margin-bottom: 28px;
   }
   .modal input {
     width: 100%;
-    background: var(--ink);
-    border: 1px solid var(--hairline);
-    color: var(--cream);
+    background: transparent;
+    border: 1px solid var(--dim);
+    color: var(--white);
     padding: 14px 16px;
-    font-family: var(--mono);
+    font-family: var(--sans);
     font-size: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     outline: none;
+    text-align: center;
+    border-radius: 100px;
     transition: border-color 0.2s;
   }
-  .modal input:focus { border-color: var(--warm); }
+  .modal input:focus { border-color: var(--white); }
   .modal button {
     width: 100%;
-    background: var(--cream);
-    color: var(--ink);
+    background: var(--white);
+    color: var(--black);
     border: none;
     padding: 14px 16px;
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s;
+    border-radius: 100px;
+    transition: opacity 0.2s;
   }
-  .modal button:hover { background: var(--warm); }
+  .modal button:hover { opacity: 0.85; }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="row">
-    <div class="brand">Work<span>Different</span></div>
-    <div class="nav-right">
-      <a href="#thesis">Thesis</a>
-      <a href="#gallery">The work</a>
-      <a href="#" class="join-link" id="open-modal">Join the studio →</a>
-    </div>
+    <div class="wordmark-small">Work Different<span class="dot">.</span></div>
+    <a href="#" class="nav-link" id="open-modal">Join the studio</a>
   </div>
 </nav>
 
 <!-- ─── HERO ────────────────────────────────────────────── -->
 <header class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="eyebrow reveal d1">A series for builders, operators, and originals</div>
-        <h1 class="reveal d2">Work<br>different<span class="dot">.</span></h1>
-        <p class="sub reveal d3">
-          The people who changed the world worked differently. They didn't follow the playbook — they wrote a new one. We tell their stories. And we build for the people writing the next ones.
-        </p>
-      </div>
-      <div class="hero-reel reveal d4">
-        <video autoplay muted loop playsinline poster="posters/tesla.jpg">
-          <source src="reels/tesla.mp4" type="video/mp4">
-        </video>
-        <div class="hero-reel-caption">Nikola Tesla · 1856 – 1943</div>
-      </div>
-    </div>
+  <div>
+    <div class="wordmark reveal">Work Different<span class="dot">.</span></div>
+    <p class="sub reveal d2">The people who changed the world worked differently.</p>
   </div>
 </header>
 
-<!-- ─── MARQUEE ─────────────────────────────────────────── -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>He didn't power our homes. He powered the grid.</span>
-    <span>They didn't invent the plane. They invented pilots.</span>
-    <span>She didn't find new elements. She found new physics.</span>
-    <span>He didn't finish the work. He showed the method.</span>
-    <span>He didn't invent the car. He invented the way to ship it.</span>
-    <span>He didn't power our homes. He powered the grid.</span>
-    <span>They didn't invent the plane. They invented pilots.</span>
-    <span>She didn't find new elements. She found new physics.</span>
-    <span>He didn't finish the work. He showed the method.</span>
-    <span>He didn't invent the car. He invented the way to ship it.</span>
-  </div>
-</div>
-
-<!-- ─── THESIS ──────────────────────────────────────────── -->
-<section class="thesis" id="thesis">
-  <div class="container">
-    <div class="thesis-eyebrow">// The thesis</div>
-    <h2>Innovators didn't invent products.<br>They invented <em>systems</em> for other people to use.</h2>
-
-    <div class="thesis-grid">
-      <div>
-        <p>Tesla didn't power your house. He built the grid that did. The Wright Brothers didn't invent a flying machine — they invented the discipline of piloting it. Edison didn't make a lightbulb so you could read at night. He built the factory, the patent, and the utility company that delivered light to a continent.</p>
-        <p>The leverage was never the gadget. It was the architecture beneath it.</p>
-      </div>
-      <div>
-        <p>Most of us were taught to work by people who didn't build anything that lasted. The advice we got was for surviving systems, not building them. So we end up busy without becoming useful.</p>
-        <p>This is a series — and a studio — for people trying to do it the other way around. Build the system. Make the leverage. Work different.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ─── GALLERY ─────────────────────────────────────────── -->
-<section class="gallery" id="gallery">
+<section class="gallery">
   <div class="container">
-    <div class="gallery-head">
-      <h2>The <em>work.</em></h2>
-      <div class="count">// 5 of 40 · weekly drops</div>
-    </div>
-
     <div class="reels">
       <div class="reel">
         <video autoplay muted loop playsinline poster="posters/edison.jpg">
           <source src="reels/edison.mp4" type="video/mp4">
         </video>
-        <div class="reel-label"><span class="name">Edison</span><span class="dates">1847–1931</span></div>
       </div>
       <div class="reel">
         <video autoplay muted loop playsinline poster="posters/curie.jpg">
           <source src="reels/curie.mp4" type="video/mp4">
         </video>
-        <div class="reel-label"><span class="name">Curie</span><span class="dates">1867–1934</span></div>
       </div>
       <div class="reel">
         <video autoplay muted loop playsinline poster="posters/tesla.jpg">
           <source src="reels/tesla.mp4" type="video/mp4">
         </video>
-        <div class="reel-label"><span class="name">Tesla</span><span class="dates">1856–1943</span></div>
       </div>
       <div class="reel">
         <video autoplay muted loop playsinline poster="posters/wright.jpg">
           <source src="reels/wright.mp4" type="video/mp4">
         </video>
-        <div class="reel-label"><span class="name">Wright Bros.</span><span class="dates">1867–1948</span></div>
       </div>
       <div class="reel">
         <video autoplay muted loop playsinline poster="posters/davinci.jpg">
           <source src="reels/davinci.mp4" type="video/mp4">
         </video>
-        <div class="reel-label"><span class="name">da Vinci</span><span class="dates">1452–1519</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── PHILOSOPHY ──────────────────────────────────────── -->
-<section class="philosophy">
-  <div class="container">
-    <div class="philosophy-grid">
-      <div class="belief">
-        <div class="belief-num">// 01</div>
-        <h3>Most people work. A few <em>build.</em></h3>
-        <p>The difference isn't talent or hours. It's whether what you make this week makes next week easier, or just adds another week of work.</p>
-      </div>
-      <div class="belief">
-        <div class="belief-num">// 02</div>
-        <h3>Leverage is invisible until it isn't.</h3>
-        <p>Nobody notices the grid until the lights go out. Nobody notices the assembly line until the parts arrive late. The work that matters most rarely takes credit.</p>
-      </div>
-      <div class="belief">
-        <div class="belief-num">// 03</div>
-        <h3>Work is a part of life, not the opposite of it.</h3>
-        <p>The people who got the most done worked the way that suited them. They didn't separate work from life — they built lives where the work fit.</p>
       </div>
     </div>
   </div>
@@ -725,21 +335,20 @@
 <!-- ─── MANIFESTO ───────────────────────────────────────── -->
 <section class="manifesto">
   <div class="container">
-    <p>To the ones who don't fit the org chart.</p>
-    <p>To the ones building the thing nobody asked for yet.</p>
-    <p>To the ones who'd rather work the right way than work the easy way.</p>
-    <div class="manifesto-divider"></div>
-    <p>Work different.</p>
+    <div class="manifesto-text">
+      <p>To the ones who don't fit the org chart.</p>
+      <p>To the ones building the thing nobody asked for yet.</p>
+      <p>To the ones who'd rather work the right way than work the easy way.</p>
+    </div>
   </div>
 </section>
 
 <!-- ─── CLOSING ─────────────────────────────────────────── -->
 <section class="closing">
   <div class="container">
-    <div class="eyebrow">Build with us</div>
     <h2>Your turn<span class="dot">.</span></h2>
-    <p>We build agentic AI systems for founders, operators, and brands who'd rather construct the architecture than just use the tools. If that sounds like you, let's talk.</p>
     <a href="#" class="cta" id="work-with-us">Work with us</a>
+    <a href="#" class="cta-secondary" id="footer-join">Join the studio</a>
   </div>
 </section>
 
@@ -747,20 +356,8 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="left">
-        <div class="brand">Work<span style="color:var(--warm);">Different</span></div>
-        <p>Stories of the ones who built different. And the studio for the ones building next.</p>
-      </div>
-      <div class="links">
-        <a href="#thesis">Thesis</a>
-        <a href="#gallery">The work</a>
-        <a href="#" id="footer-join">Join the studio</a>
-        <a href="#" id="footer-contact">Contact</a>
-      </div>
-    </div>
-    <div class="bottom">
-      <div>© 2026 Work Different · All portraits public domain via Wikimedia Commons</div>
-      <div>Built different.</div>
+      <div>© 2026 Work Different</div>
+      <div>All portraits public domain via Wikimedia Commons</div>
     </div>
   </div>
 </footer>
@@ -769,16 +366,14 @@
 <div class="modal-backdrop" id="modal">
   <div class="modal">
     <button class="close-x" id="close-modal">×</button>
-    <div class="modal-eyebrow">// Join the studio</div>
     <h3>Get the next innovator first.</h3>
-    <p>One profile a week. The story, the work, and the lesson. No promo. Unsubscribe with one click.</p>
+    <p>One profile a week. The story, the work, the lesson. No promo.</p>
     <input type="email" placeholder="you@email.com" id="email-input">
     <button id="email-submit">Subscribe</button>
   </div>
 </div>
 
 <script>
-  // Email modal
   const modal = document.getElementById('modal');
   const openers = [document.getElementById('open-modal'), document.getElementById('footer-join')];
   const closer = document.getElementById('close-modal');
@@ -797,13 +392,13 @@
       document.getElementById('email-input').style.borderColor = 'var(--warm)';
       return;
     }
-    // TODO: replace with real form endpoint (Kit, Mailchimp, Formspree, etc.)
-    alert('Thanks — you\'re on the list. Replace this with your real form handler.');
+    // TODO: replace with real form endpoint
+    alert("Thanks — you're on the list.");
     modal.classList.remove('open');
     document.getElementById('email-input').value = '';
   });
 
-  // Pause off-screen videos for performance
+  // Pause off-screen videos
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
