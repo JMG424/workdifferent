@@ -477,8 +477,8 @@
   }
   .system-list { list-style: none; margin-bottom: 22px; flex-grow: 1; }
   .system-list li {
-    font-family: var(--serif); font-size: 19px;
-    color: var(--cream); padding: 7px 0 7px 20px;
+    font-family: var(--serif); font-size: 20px;
+    color: var(--cream); padding: 7px 0 7px 27px;
     border-bottom: 1px solid var(--hairline);
     position: relative;
   }
@@ -523,8 +523,103 @@
   }
   .systems-footnote a:hover { border-bottom-color: var(--warm); color: var(--warm); }
 
+
+  .pain-line {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin: 24px 0 36px;
+  }
+  .pain-note {
+    min-height: 118px;
+    border: 1px solid var(--hairline);
+    background: rgba(243,240,232,0.92);
+    color: var(--ink);
+    border-radius: 4px;
+    padding: 15px 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  }
+  .pain-note:nth-child(2n) { transform: rotate(1.2deg); }
+  .pain-note:nth-child(3n) { transform: rotate(-1deg); }
+  .value-bridge {
+    margin: 0 auto 36px;
+    max-width: 760px;
+    text-align: center;
+    color: var(--cream-2);
+    font-family: var(--serif);
+    font-size: 27px;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+  .value-bridge strong { color: var(--cream); font-weight: 600; }
+  .value-layers-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin: 0 0 42px;
+  }
+  .value-layer {
+    background: rgba(19,19,22,0.74);
+    border: 1px solid var(--hairline);
+    padding: 24px 20px 22px;
+    min-height: 218px;
+  }
+  .value-layer .num {
+    font-size: 18px;
+    color: var(--cream-2);
+    margin-bottom: 18px;
+  }
+  .value-layer h4 {
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    font-weight: 600;
+    color: var(--cream);
+    margin: 0 0 12px;
+  }
+  .value-layer p {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 21px;
+    line-height: 1.14;
+    color: var(--cream-2);
+    letter-spacing: -0.018em;
+  }
+  .outcomes-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 0 0 44px;
+  }
+  .outcome-chip {
+    border-top: 1px solid var(--hairline);
+    padding: 14px 0 0;
+    font-size: 22px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    color: var(--cream);
+  }
+  .delivery-label {
+    margin: 8px 0 20px;
+    color: var(--cream-2);
+    font-size: 22px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
   @media (max-width: 1000px) {
-    .systems-grid { grid-template-columns: 1fr; }
+    .systems-grid, .pain-line, .value-layers-grid, .outcomes-strip { grid-template-columns: 1fr; }
+    .pain-note { min-height: 86px; transform: none !important; }
   }
 
   /* ─── MANIFESTO ───────────────────────────────────────── */
@@ -745,13 +840,39 @@
 <section class="systems-section panel-solid layer" id="systems">
   <div class="container">
     <div class="section-head">
-      <div class="label">Featured systems</div>
-      <h2>The systems we'd build for <em>you</em>.</h2>
-      <p class="lede">Real AI teammates — built on <strong style="color:var(--cream);font-weight:700;">OpenClaw</strong> and <strong style="color:var(--cream);font-weight:700;">Hermes-Agent</strong>. Named agents that hold context across days and weeks, run on your hardware or in the cloud, and take action in the tools you already use. Not chatbots. Not subscriptions. The kind of AI the people building the next grid would actually use.</p>
+      <div class="label">What AI employees solve</div>
+      <h2>Too many loose ends. Not enough operating memory.</h2>
+      <p class="lede">Most businesses do not need more AI. They need a managed AI employee that captures context, remembers the business, and turns scattered work into organized action.</p>
+    </div>
+
+    <div class="pain-line" aria-label="Common operational problems">
+      <div class="pain-note">Too many<br>emails</div>
+      <div class="pain-note">Too many<br>meetings</div>
+      <div class="pain-note">Too many<br>follow-ups</div>
+      <div class="pain-note">Too many<br>open loops</div>
+      <div class="pain-note">Context spread<br>everywhere</div>
+      <div class="pain-note">Too many people<br>and projects</div>
+    </div>
+
+    <p class="value-bridge"><strong>The AI employee turns daily chaos into organized action.</strong> Context becomes the asset. Workflows become the product.</p>
+
+    <div class="value-layers-grid">
+      <div class="value-layer"><div class="num">01</div><h4>Capture</h4><p>Meetings, voice notes, emails, docs, and requests stop disappearing into separate tools.</p></div>
+      <div class="value-layer"><div class="num">02</div><h4>Structure</h4><p>People, projects, decisions, SOPs, and next actions become usable operating memory.</p></div>
+      <div class="value-layer"><div class="num">03</div><h4>Act</h4><p>It drafts, follows up, researches, summarizes, updates, reminds, and moves work forward.</p></div>
+      <div class="value-layer"><div class="num">04</div><h4>Monitor</h4><p>Watchdogs, alerts, and scheduled checks catch broken workflows before they become silent failures.</p></div>
+      <div class="value-layer"><div class="num">05</div><h4>Improve</h4><p>Every request and fix becomes better context, better workflows, and a smarter operating layer.</p></div>
+    </div>
+
+    <div class="outcomes-strip">
+      <div class="outcome-chip">Fewer missed follow-ups</div>
+      <div class="outcome-chip">Cleaner project tracking</div>
+      <div class="outcome-chip">Searchable company memory</div>
+      <div class="outcome-chip">More owner leverage every week</div>
     </div>
 
     <div class="powered-by">
-      <div class="powered-label">Powered by</div>
+      <div class="powered-label">Built on</div>
       <div class="powered-logos">
         <img src="openclaw.png" alt="OpenClaw">
         <span class="powered-plus">+</span>
@@ -759,55 +880,56 @@
       </div>
     </div>
 
+    <div class="delivery-label">Three ways to build the operating layer.</div>
     <div class="systems-grid">
       <div class="system">
-        <div class="system-tag">System 01</div>
-        <h4>Chief of Staff</h4>
-        <p class="system-headline">A named agent that runs your operating rhythm. Morning briefs. Evening sweeps. Calendar guardian. Inbox triage.</p>
+        <div class="system-tag">Done for you</div>
+        <h4>Managed AI Employee</h4>
+        <p class="system-headline">A named AI teammate installed around one high-leverage role: inbox, calendar, follow-up, research, operations, or client service.</p>
         <ul class="system-list">
-          <li>Holds context across the week</li>
-          <li>Runs on a schedule, not on prompts</li>
-          <li>Connects to calendar, inbox, drive</li>
-          <li>Telegram or Slack interface</li>
-          <li>Deployed on your hardware</li>
+          <li>Discovery and workflow design</li>
+          <li>Agent setup with memory and tools</li>
+          <li>Scheduled briefs, sweeps, and reminders</li>
+          <li>Secure access to the systems it needs</li>
+          <li>Ongoing management and improvement</li>
         </ul>
         <a href="#book" class="system-cta">Start here</a>
-        <div class="system-platform">Built on OpenClaw</div>
+        <div class="system-platform">Best when you want leverage without learning the machinery</div>
       </div>
 
       <div class="system featured">
-        <div class="system-tag">System 02</div>
-        <h4>Operator System</h4>
-        <p class="system-headline">A small fleet of agents wired around how you actually work — research, sales follow-up, content, ops, knowledge.</p>
+        <div class="system-tag">Built with you</div>
+        <h4>Build + Knowledge Transfer</h4>
+        <p class="system-headline">We build the first useful operating layer with you, then teach your team how to run, maintain, and extend it.</p>
         <ul class="system-list">
-          <li>3–5 named agents with clear briefs</li>
-          <li>Inter-agent handoffs and supervision</li>
-          <li>Integrates with your existing stack</li>
-          <li>Tuning windows post-launch</li>
-          <li>Mac Studio or cloud deployment</li>
+          <li>Workflow mapping and agent design</li>
+          <li>Hands-on build sessions</li>
+          <li>Documentation and operating playbooks</li>
+          <li>Tool integrations and permissions</li>
+          <li>Training window after launch</li>
         </ul>
-        <a href="#book" class="system-cta">Scope my system</a>
-        <div class="system-platform">OpenClaw + Hermes-Agent</div>
+        <a href="#book" class="system-cta">Build with us</a>
+        <div class="system-platform">Best when you want capability inside the company</div>
       </div>
 
       <div class="system">
-        <div class="system-tag">System 03</div>
-        <h4>Multi-Agent Studio</h4>
-        <p class="system-headline">A full agentic team for an executive group or company. Founder-level leverage, end-to-end.</p>
+        <div class="system-tag">Built around the company</div>
+        <h4>AI Operating Layer</h4>
+        <p class="system-headline">A company-wide agentic system: multiple named agents, shared memory, monitoring, handoffs, and executive operating rhythm.</p>
         <ul class="system-list">
-          <li>Custom agent design + deployment</li>
-          <li>Per-executive Chief of Staff fleet</li>
-          <li>On-prem or hybrid infrastructure</li>
-          <li>90-day co-pilot engagement</li>
+          <li>Multi-agent architecture and deployment</li>
+          <li>Company memory and knowledge routing</li>
+          <li>Per-team or per-executive agents</li>
+          <li>Monitoring, watchdogs, and recovery paths</li>
           <li>Ongoing studio retainer available</li>
         </ul>
         <a href="#book" class="system-cta">Scope a studio build</a>
-        <div class="system-platform">OpenClaw + Hermes-Agent</div>
+        <div class="system-platform">Best when AI becomes infrastructure, not a side tool</div>
       </div>
     </div>
 
     <p class="systems-footnote">
-      Every engagement starts with a 30-minute discovery call. We won't quote blind, and we won't take you on if the fit isn't right. <a href="#book">Start there →</a>
+      The real deliverable is not a chatbot. It is a managed AI employee that knows the company, uses the right tools, remembers what matters, and keeps improving the way work gets done. <a href="#book">Start there →</a>
     </p>
   </div>
 </section>
