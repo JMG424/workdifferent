@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Build Your Agentic Team | Work Different AI</title>
+<meta name="description" content="A premium client-facing page explaining the opportunity to build persistent AI agent teams: memory, cadence, specialist roles, human approval, and measurable business leverage." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0c;
+    --near-black: #1d1d1f;
+    --white: #ffffff;
+    --cream: #f3f0e8;
+    --cream-2: #d8d2c4;
+    --warm: #d9a76b;
+    --gray: #f5f5f7;
+    --gray-2: #e8e8ed;
+    --gray-3: #86868b;
+    --gray-4: #6e6e73;
+    --blue: #0071e3;
+    --blue-link: #0066cc;
+    --blue-bright: #2997ff;
+    --glass: rgba(10,10,12,.78);
+    --hairline: rgba(235,229,212,.16);
+    --dark-card: #151517;
+    --dark-card-2: #202022;
+    --shadow: rgba(0,0,0,.22) 3px 5px 30px 0;
+    --max: 1120px;
+    --radius: 24px;
+    --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --serif: "Cormorant Garamond", "Apple Garamond", "Times New Roman", Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--black);
+    color: var(--near-black);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--blue); color: white; }
+
+  .nav {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 52px;
+    background: var(--glass);
+    color: var(--cream);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    font-size: 17px;
+    letter-spacing: -.01em;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 21px;
+    letter-spacing: -.015em;
+    text-decoration: none;
+    opacity: .94;
+  }
+  .nav-links { display: flex; gap: 26px; align-items: center; }
+  .nav-links a { text-decoration: none; opacity: .92; transition: opacity .18s ease; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    color: var(--black);
+    background: var(--cream);
+    border-radius: 980px;
+    padding: 5px 12px 6px;
+    text-decoration: none;
+    font-size: 17px;
+    line-height: 1;
+  }
+
+  section { position: relative; overflow: hidden; }
+  .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-family: var(--serif);
+    font-size: 21px;
+    line-height: 1.19;
+    letter-spacing: .011em;
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+  .headline {
+    font-family: var(--serif);
+    font-size: clamp(58px, 9vw, 112px);
+    line-height: .97;
+    letter-spacing: -.055em;
+    font-weight: 600;
+    margin: 0 auto;
+    max-width: 1050px;
+  }
+  .subhead {
+    font-family: var(--serif);
+    font-size: clamp(23px, 2.8vw, 32px);
+    line-height: 1.16;
+    letter-spacing: -.028em;
+    font-weight: 500;
+    margin: 22px auto 0;
+    max-width: 820px;
+    color: rgba(255,255,255,.78);
+  }
+  .copy {
+    font-size: 19px;
+    line-height: 1.42;
+    letter-spacing: -.022em;
+    color: var(--gray-4);
+  }
+  .copy.dark { color: rgba(255,255,255,.72); }
+
+  .hero {
+    min-height: 100svh;
+    background: #000;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 104px 0 56px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 11% -10% auto;
+    height: 58vh;
+    background:
+      radial-gradient(circle at 50% 45%, rgba(255,255,255,.24) 0 2%, transparent 9%),
+      radial-gradient(circle at 44% 50%, rgba(41,151,255,.34), transparent 20%),
+      radial-gradient(circle at 56% 52%, rgba(255,255,255,.12), transparent 24%),
+      radial-gradient(circle at 50% 52%, rgba(70,70,78,.9), transparent 38%);
+    filter: blur(18px);
+    opacity: .74;
+    transform: translateY(20vh);
+  }
+  .hero-visual {
+    position: relative;
+    width: min(850px, 90vw);
+    height: 300px;
+    margin: 48px auto 22px;
+    display: grid;
+    place-items: center;
+  }
+  .halo {
+    position: absolute;
+    width: min(640px, 78vw);
+    aspect-ratio: 1/.43;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,.28), rgba(41,151,255,.18) 28%, rgba(0,0,0,0) 69%);
+    filter: blur(8px);
+    opacity: .85;
+  }
+  .agent-ring {
+    position: absolute;
+    width: min(620px, 82vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.16);
+    transform: perspective(800px) rotateX(68deg);
+  }
+  .agent-chip {
+    position: absolute;
+    width: 108px;
+    min-height: 64px;
+    padding: 12px 14px;
+    border-radius: 18px;
+    background: rgba(29,29,31,.72);
+    border: 1px solid rgba(255,255,255,.18);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 60px rgba(0,0,0,.45);
+    text-align: left;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.18;
+    letter-spacing: -.01em;
+  }
+  .agent-chip b { display: block; font-size: 14px; margin-bottom: 4px; }
+  .agent-chip span { color: rgba(255,255,255,.82); }
+  .chip-1 { top: 26px; left: 50%; transform: translateX(-50%); }
+  .chip-2 { top: 128px; right: 9%; }
+  .chip-3 { bottom: 22px; right: 27%; }
+  .chip-4 { bottom: 22px; left: 27%; }
+  .chip-5 { top: 128px; left: 9%; }
+  .memory-core {
+    position: relative;
+    width: 164px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 42%, rgba(255,255,255,.96) 0 9%, rgba(255,255,255,.4) 10% 18%, transparent 19%),
+      radial-gradient(circle at 52% 56%, rgba(41,151,255,.94), rgba(0,113,227,.32) 42%, rgba(255,255,255,.08) 62%, rgba(0,0,0,.3) 100%);
+    box-shadow: 0 0 70px rgba(41,151,255,.46), inset 0 0 40px rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.34);
+  }
+  .cta-row { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 30px; }
+  .button {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: 980px;
+    border: 1px solid transparent;
+    background: var(--cream);
+    color: var(--black);
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 400;
+    text-decoration: none;
+    transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .button:hover { background: var(--warm); transform: translateY(-1px); }
+  .button.secondary { background: transparent; color: var(--cream); border-color: rgba(243,240,232,.45); }
+  .button.secondary:hover { border-color: var(--cream); background: rgba(243,240,232,.08); }
+
+  .scene-light { background: linear-gradient(180deg, #f6f3ec, #f5f5f7); color: var(--near-black); padding: 112px 0; }
+  .scene-dark { background: #000; color: #fff; padding: 112px 0; }
+  .center { text-align: center; }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(46px, 6.5vw, 86px);
+    line-height: 1.02;
+    letter-spacing: -.052em;
+    font-weight: 600;
+    margin: 0 auto;
+    max-width: 920px;
+  }
+  .section-lede {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.6vw, 30px);
+    line-height: 1.17;
+    letter-spacing: -.034em;
+    font-weight: 500;
+    margin: 20px auto 0;
+    max-width: 800px;
+    color: var(--gray-4);
+  }
+  .scene-dark .section-lede { color: rgba(255,255,255,.78); }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 50px;
+  }
+  .proof-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    text-align: left;
+    min-height: 250px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.04);
+  }
+  .proof-card .number {
+    font-size: clamp(42px, 5vw, 64px);
+    line-height: .9;
+    letter-spacing: -.055em;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .proof-card p { margin: 0; color: #56565b; font-size: 16px; line-height: 1.38; letter-spacing: -.014em; }
+  .proof-card strong { color: var(--near-black); }
+
+  .split {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  .before-after {
+    display: grid;
+    gap: 14px;
+  }
+  .ba-card {
+    border-radius: 28px;
+    padding: 30px;
+    background: #fff;
+    color: var(--near-black);
+  }
+  .ba-card.darkish { background: #111113; color: #fff; border: 1px solid rgba(255,255,255,.12); }
+  .ba-card h3 { font-size: 28px; line-height: 1.08; letter-spacing: -.04em; margin: 0 0 14px; }
+  .ba-card p { margin: 0; color: var(--gray-4); font-size: 17px; line-height: 1.42; letter-spacing: -.02em; }
+  .ba-card.darkish p { color: rgba(255,255,255,.68); }
+  .line-list { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
+  .line-list li { display: flex; gap: 10px; align-items: flex-start; color: inherit; font-size: 15px; line-height: 1.35; }
+  .dot { flex: 0 0 7px; width: 7px; height: 7px; margin-top: 7px; border-radius: 50%; background: var(--warm); }
+
+  .team-canvas {
+    margin-top: 56px;
+    min-height: 620px;
+    border-radius: 36px;
+    background:
+      radial-gradient(circle at 50% 40%, rgba(41,151,255,.22), transparent 28%),
+      linear-gradient(180deg, #151517, #050505);
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 30px 100px rgba(0,0,0,.6);
+    position: relative;
+    overflow: hidden;
+    padding: 36px;
+  }
+  .team-map {
+    position: relative;
+    min-height: 545px;
+    display: grid;
+    place-items: center;
+  }
+  .team-core {
+    width: 260px;
+    min-height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 42%, #fff, #9dd0ff 22%, #0071e3 54%, #07121f 100%);
+    box-shadow: 0 0 100px rgba(41,151,255,.48), inset 0 0 40px rgba(255,255,255,.32);
+    color: #06101a;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 34px;
+    z-index: 2;
+  }
+  .team-core b { font-size: 28px; letter-spacing: -.04em; line-height: 1.02; }
+  .team-core span { display: block; margin-top: 8px; font-size: 14px; color: rgba(6,16,26,.78); font-weight: 600; }
+  .orbit {
+    position: absolute;
+    inset: 42px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 50%;
+    transform: scaleY(.62);
+  }
+  .role-card {
+    position: absolute;
+    width: 220px;
+    border-radius: 24px;
+    padding: 18px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(18px);
+    color: #fff;
+  }
+  .role-card h3 { margin: 0 0 6px; font-size: 20px; line-height: 1.05; letter-spacing: -.035em; }
+  .role-card p { margin: 0; font-size: 15px; line-height: 1.34; color: rgba(255,255,255,.82); }
+  .r1 { top: 0; left: calc(50% - 110px); }
+  .r2 { top: 124px; right: 6px; }
+  .r3 { bottom: 26px; right: 92px; }
+  .r4 { bottom: 26px; left: 92px; }
+  .r5 { top: 124px; left: 6px; }
+
+  .architecture {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 54px;
+  }
+  .arch-step {
+    background: #fff;
+    border-radius: 24px;
+    padding: 24px 18px 22px;
+    min-height: 240px;
+    position: relative;
+  }
+  .arch-step .idx { color: var(--warm); font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+  .arch-step h3 { margin: 0 0 10px; font-size: 23px; line-height: 1.08; letter-spacing: -.038em; }
+  .arch-step p { margin: 0; color: var(--gray-4); font-size: 14px; line-height: 1.36; letter-spacing: -.012em; }
+
+  .use-cases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 50px;
+  }
+  .case-card {
+    border-radius: 28px;
+    padding: 30px;
+    background: var(--dark-card);
+    border: 1px solid rgba(255,255,255,.1);
+    min-height: 280px;
+  }
+  .case-card h3 { margin: 0 0 14px; font-size: 28px; line-height: 1.06; letter-spacing: -.04em; }
+  .case-card p { margin: 0; color: rgba(255,255,255,.76); font-size: 16px; line-height: 1.4; letter-spacing: -.018em; }
+  .case-card .tag { display: inline-flex; margin-bottom: 30px; color: var(--cream-2); font-size: 13px; font-weight: 600; }
+
+  .quote-band {
+    margin-top: 64px;
+    border-radius: 36px;
+    background: #fff;
+    color: var(--near-black);
+    padding: clamp(38px, 7vw, 76px);
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .quote-band blockquote {
+    margin: 0 auto;
+    max-width: 850px;
+    font-size: clamp(34px, 5vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -.052em;
+    font-weight: 700;
+  }
+  .quote-band p { margin: 22px auto 0; max-width: 650px; color: #56565b; }
+
+  .build-plan {
+    display: grid;
+    gap: 12px;
+    margin-top: 54px;
+  }
+  .plan-row {
+    display: grid;
+    grid-template-columns: 92px 1fr 1.2fr;
+    gap: 22px;
+    align-items: center;
+    min-height: 112px;
+    padding: 24px 28px;
+    border-radius: 28px;
+    background: #fff;
+  }
+  .plan-row .week { color: var(--warm); font-weight: 700; font-size: 15px; }
+  .plan-row h3 { margin: 0; font-size: 28px; line-height: 1.08; letter-spacing: -.04em; }
+  .plan-row p { margin: 0; color: var(--gray-4); font-size: 16px; line-height: 1.38; }
+
+  .final-cta {
+    min-height: 82svh;
+    background: #000;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 110px 0 88px;
+  }
+  .final-cta::before {
+    content: "";
+    position: absolute;
+    width: min(900px, 92vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(41,151,255,.24), transparent 58%);
+    filter: blur(20px);
+  }
+  .final-cta .container { position: relative; }
+  .research-note {
+    margin-top: 56px;
+    color: rgba(255,255,255,.68);
+    font-size: 13px;
+    line-height: 1.45;
+    letter-spacing: -.01em;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .research-note a { color: rgba(255,255,255,.66); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.22); }
+  .site-footer {
+    background: var(--black);
+    color: rgba(216,210,196,.9);
+    border-top: 1px solid var(--hairline);
+    padding: 26px 0;
+    font-family: var(--serif);
+    font-size: 15px;
+  }
+  .footer-row { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  .site-footer a { color: var(--cream); text-decoration: none; border-bottom: 1px solid rgba(243,240,232,.35); }
+  .site-footer a:hover { color: var(--warm); border-bottom-color: var(--warm); }
+
+  @media (max-width: 940px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .proof-grid, .use-cases { grid-template-columns: 1fr 1fr; }
+    .split { grid-template-columns: 1fr; }
+    .architecture { grid-template-columns: 1fr 1fr; }
+    .team-canvas { padding: 22px; }
+    .team-map { display: grid; gap: 12px; place-items: stretch; min-height: auto; }
+    .team-core { width: 100%; min-height: 180px; border-radius: 28px; }
+    .orbit { display: none; }
+    .role-card { position: static; width: 100%; }
+    .plan-row { grid-template-columns: 1fr; gap: 10px; }
+  }
+  @media (max-width: 640px) {
+    .container { padding: 0 18px; }
+    .hero { padding-top: 86px; }
+    .hero-visual { height: 430px; margin-top: 26px; }
+    .agent-ring { display: none; }
+    .agent-chip { width: calc(50% - 10px); }
+    .chip-1 { top: 0; left: 0; transform: none; }
+    .chip-2 { top: 0; right: 0; }
+    .chip-3 { bottom: 0; right: 0; }
+    .chip-4 { bottom: 0; left: 0; }
+    .chip-5 { top: 86px; left: 50%; transform: translateX(-50%); }
+    .memory-core { width: 132px; }
+    .proof-grid, .use-cases, .architecture { grid-template-columns: 1fr; }
+    .scene-light, .scene-dark { padding: 82px 0; }
+    .proof-card, .case-card, .ba-card { border-radius: 22px; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .memory-core { animation: pulse 4s ease-in-out infinite; }
+    .agent-chip { animation: float 5s ease-in-out infinite; }
+    .chip-2, .chip-4 { animation-delay: .8s; }
+    .chip-3, .chip-5 { animation-delay: 1.4s; }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.035); } }
+    @keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+  }
+</style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a class="brand" href="./index.html">Work Different</a>
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="#why">Why now</a>
+        <a href="#system">The system</a>
+        <a href="#build">Build path</a>
+        <a class="nav-cta" href="#proceed">Proceed</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="eyebrow">Persistent agents are the next business operating layer.</p>
+        <h1 class="headline" id="hero-title">Build the AI team your company actually needs.</h1>
+        <p class="subhead">Not another chatbot. A small, persistent agentic team that remembers, follows up, routes work, protects boundaries, and compounds every week.</p>
+        <div class="hero-visual" aria-label="Agentic team orbiting a shared memory core">
+          <div class="halo"></div>
+          <div class="agent-ring"></div>
+          <div class="agent-chip chip-1"><b>Chief of Staff</b><span>priorities, meetings, decisions</span></div>
+          <div class="agent-chip chip-2"><b>Growth</b><span>content, campaigns, follow-up</span></div>
+          <div class="agent-chip chip-3"><b>Finance</b><span>cash, invoices, risk flags</span></div>
+          <div class="agent-chip chip-4"><b>Research</b><span>market, competitors, strategy</span></div>
+          <div class="agent-chip chip-5"><b>Ops</b><span>tasks, QA, handoffs</span></div>
+          <div class="memory-core" aria-hidden="true"></div>
+        </div>
+        <div class="cta-row">
+          <a class="button" href="#build">See the build path</a>
+          <a class="button secondary" href="#system">Explore the team</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene-light" id="why">
+      <div class="container center">
+        <h2 class="section-title">The opportunity is no longer “use AI.” It is: who works on your behalf when you are not looking?</h2>
+        <p class="section-lede">The market is moving from prompts and copilots into persistent systems: agents with memory, tools, schedules, handoffs, and human approval points.</p>
+        <div class="proof-grid" aria-label="Research signals">
+          <article class="proof-card">
+            <div class="number">$450B</div>
+            <p><strong>Projected economic value by 2028.</strong> Capgemini estimates AI agents could generate up to $450B through revenue uplift and cost savings across surveyed countries.</p>
+          </article>
+          <article class="proof-card">
+            <div class="number">93%</div>
+            <p><strong>Leaders expect an edge.</strong> Capgemini found 93% of leaders believe companies that scale AI agents in the next 12 months will gain advantage.</p>
+          </article>
+          <article class="proof-card">
+            <div class="number">25% → 50%</div>
+            <p><strong>Pilots are accelerating.</strong> Deloitte predicts 25% of gen-AI-using companies will launch agentic AI pilots in 2025, rising to 50% by 2027.</p>
+          </article>
+          <article class="proof-card">
+            <div class="number">Memory</div>
+            <p><strong>The production gap.</strong> Google Cloud frames the difference between demos and production agentic workflows as the “memory barrier.”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene-dark">
+      <div class="container">
+        <div class="split">
+          <div>
+            <h2 class="section-title">Chatbots answer. Agent teams operate.</h2>
+            <p class="section-lede">The difference is persistence. A chatbot starts over. A team carries context forward.</p>
+          </div>
+          <div class="before-after">
+            <article class="ba-card">
+              <h3>Before: disconnected AI moments</h3>
+              <p>A person prompts a model, copies output somewhere else, remembers what changed, then repeats the same context tomorrow.</p>
+              <ul class="line-list">
+                <li><span class="dot"></span><span>No durable memory across days or departments.</span></li>
+                <li><span class="dot"></span><span>No routing by business domain or sensitivity.</span></li>
+                <li><span class="dot"></span><span>No cadence, escalation, or owner when the work stalls.</span></li>
+              </ul>
+            </article>
+            <article class="ba-card darkish">
+              <h3>After: a persistent operating team</h3>
+              <p>Specialized agents monitor their lane, share approved context, trigger on schedules or events, and ask humans when judgment matters.</p>
+              <ul class="line-list">
+                <li><span class="dot"></span><span>Memory that compounds with every interaction.</span></li>
+                <li><span class="dot"></span><span>Specialists for growth, finance, ops, research, support, and leadership.</span></li>
+                <li><span class="dot"></span><span>Human approval gates for external, financial, legal, and brand-sensitive actions.</span></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene-light" id="system">
+      <div class="container center">
+        <h2 class="section-title">A team, not a tool.</h2>
+        <p class="section-lede">Each agent gets a role, workspace, memory, tool access, cadence, and boundaries. Together, they become an operating system for the messy middle of the business.</p>
+        <div class="team-canvas">
+          <div class="team-map">
+            <div class="orbit"></div>
+            <div class="team-core"><div><b>Shared Memory Core</b><span>decisions · preferences · context · handoffs</span></div></div>
+            <article class="role-card r1"><h3>Executive agent</h3><p>Turns scattered priorities into next actions, meeting prep, reminders, and weekly leverage reviews.</p></article>
+            <article class="role-card r2"><h3>Growth agent</h3><p>Drafts campaigns, tracks leads, watches channels, and keeps follow-up from dying in the inbox.</p></article>
+            <article class="role-card r3"><h3>Finance agent</h3><p>Flags cash movement, invoice gaps, renewal risk, and decisions that need a human before money moves.</p></article>
+            <article class="role-card r4"><h3>Delivery agent</h3><p>Checks client work, project promises, implementation status, and open loops before they become fires.</p></article>
+            <article class="role-card r5"><h3>Research agent</h3><p>Monitors markets, competitors, opportunities, and internal knowledge so strategy stays current.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene-light" style="padding-top:0">
+      <div class="container center">
+        <h2 class="section-title">What gets built.</h2>
+        <p class="section-lede">The valuable part is not the model. It is the operating architecture around the model.</p>
+        <div class="architecture">
+          <article class="arch-step"><div class="idx">01</div><h3>Roles</h3><p>Clear agent jobs mapped to actual business pain: follow-up, delivery QA, content, finance, research, operations.</p></article>
+          <article class="arch-step"><div class="idx">02</div><h3>Memory</h3><p>Durable client, company, and workflow context so the system improves instead of restarting.</p></article>
+          <article class="arch-step"><div class="idx">03</div><h3>Tools</h3><p>Connected inboxes, docs, calendars, CRM, files, dashboards, APIs, and internal systems.</p></article>
+          <article class="arch-step"><div class="idx">04</div><h3>Cadence</h3><p>Daily, weekly, event-driven, and watchdog routines that keep work moving without manual prompting.</p></article>
+          <article class="arch-step"><div class="idx">05</div><h3>Governance</h3><p>Approval gates, boundaries, audit trails, and escalation rules so autonomy stays useful instead of reckless.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene-dark">
+      <div class="container center">
+        <h2 class="section-title">Where the first leverage usually shows up.</h2>
+        <p class="section-lede">Start with the loops that leak attention: follow-up, handoffs, monitoring, prep, and recurring judgment.</p>
+        <div class="use-cases">
+          <article class="case-card"><span class="tag">Revenue</span><h3>Never lose a warm lead quietly.</h3><p>A growth agent watches inbound interest, drafts context-aware follow-ups, routes objections, and keeps pipeline tasks alive until a human closes the loop.</p></article>
+          <article class="case-card"><span class="tag">Delivery</span><h3>Catch promises before clients do.</h3><p>A delivery agent compares scope, notes, open tasks, and status updates — then flags missing handoffs or overdue commitments.</p></article>
+          <article class="case-card"><span class="tag">Leadership</span><h3>Wake up to the short list.</h3><p>An executive agent distills overnight changes, today’s decisions, and the few actions that actually move the company.</p></article>
+          <article class="case-card"><span class="tag">Knowledge</span><h3>Stop re-explaining the business.</h3><p>Persistent memory preserves what matters: client preferences, internal language, decisions, lessons, and exceptions.</p></article>
+          <article class="case-card"><span class="tag">Risk</span><h3>Keep sensitive lanes separate.</h3><p>Finance, legal, security, and brand-sensitive work can have tighter permissions, approval gates, and audit trails.</p></article>
+          <article class="case-card"><span class="tag">Strategy</span><h3>Make market awareness routine.</h3><p>Research agents monitor competitors, trends, vendors, and opportunities — then turn signal into decisions, not browser tabs.</p></article>
+        </div>
+        <div class="quote-band">
+          <blockquote>“I don’t build chatbots. I build a small AI operating team around the parts of your business that leak time, attention, and follow-up.”</blockquote>
+          <p class="copy">That is the practical promise: not magic autonomy. Managed persistence. Better memory. Fewer dropped balls. Faster decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene-light" id="build">
+      <div class="container center">
+        <h2 class="section-title">A sane path to your first agent team.</h2>
+        <p class="section-lede">Build enough system to prove value. Not enough system to create theater.</p>
+        <div class="build-plan">
+          <div class="plan-row"><div class="week">Phase 1</div><h3>Map the work that leaks.</h3><p>Identify recurring loops, sensitive boundaries, tools, approvals, and the first measurable business outcome.</p></div>
+          <div class="plan-row"><div class="week">Phase 2</div><h3>Launch the first persistent agent.</h3><p>Give one agent a role, memory, tool access, cadence, and a narrow lane where it can create visible leverage.</p></div>
+          <div class="plan-row"><div class="week">Phase 3</div><h3>Add memory and operating rhythm.</h3><p>Daily/weekly summaries, decision logs, client context, preferences, and escalation rules turn novelty into reliability.</p></div>
+          <div class="plan-row"><div class="week">Phase 4</div><h3>Expand into specialists.</h3><p>Add adjacent agents only when the handoff is obvious: growth to research, executive to ops, delivery to finance.</p></div>
+          <div class="plan-row"><div class="week">Phase 5</div><h3>Install the command layer.</h3><p>Dashboard, audit trails, ROI review, and approval workflows make the agent team manageable by humans.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="proceed">
+      <div class="container">
+        <p class="eyebrow">The first-mover advantage is operational, not cosmetic.</p>
+        <h2 class="headline">Build your agent team before your competitors understand why it matters.</h2>
+        <p class="subhead">The next step is a focused agent-team blueprint: where agents belong, what they remember, what they can touch, and where humans stay in control.</p>
+        <div class="cta-row">
+          <a class="button" href="mailto:jason@meta57.xyz?subject=Agentic%20Team%20Blueprint">Start the blueprint</a>
+          <a class="button secondary" href="#why">Review the opportunity</a>
+        </div>
+        <p class="research-note">Research signals used: Capgemini Research Institute, <em>Rise of agentic AI</em> (2025); Deloitte Insights, <em>Autonomous generative AI agents: Under development</em> (2025); Google Cloud / MongoDB, <em>Breaking the memory barrier: A blueprint for stateful multi-agent systems</em> (2025). Statistics are presented as directional market context, not guarantees of client outcome.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>© 2026 Work Different · Agentic systems studio</div>
+      <a href="./index.html">Back to Work Different</a>
+      <div>// Built different</div>
+    </div>
+  </footer>
+</body>
+</html>
