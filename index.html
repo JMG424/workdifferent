@@ -62,6 +62,7 @@
   .bigquote{font-family:var(--serif);font-size:clamp(46px,7vw,92px);line-height:.86;letter-spacing:-.07em;text-wrap:balance}.quote-note{color:var(--muted);font-size:20px;line-height:1.45;margin-top:24px;max-width:560px}
 
   .offer{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(217,167,107,.08))}.price{font-family:var(--serif);font-size:42px;line-height:.9;letter-spacing:-.055em;margin:10px 0 16px}.featured{outline:2px solid var(--gold);background:rgba(217,167,107,.12)}
+  .calculator{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.055))}.calc-shell{display:grid;grid-template-columns:.92fr 1.08fr;gap:18px;align-items:stretch}.calc-panel{border:1px solid var(--line);border-radius:34px;background:rgba(255,255,255,.055);padding:26px;box-shadow:0 30px 100px rgba(0,0,0,.28)}.calc-form{display:grid;gap:18px}.field label{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px;color:var(--muted);font-size:14px;font-weight:750}.field label span:last-child{color:var(--gold)}.field input,.field select{width:100%;appearance:none;border:1px solid var(--line2);border-radius:16px;background:rgba(0,0,0,.30);color:var(--text);padding:13px 14px;font:inherit;font-size:16px;outline:none}.field input:focus,.field select:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(217,167,107,.12)}.field input[type=range]{padding:0;height:6px;accent-color:var(--gold);border:0;background:rgba(255,255,255,.18)}.result-card{background:var(--panel2);color:var(--ink);border:0}.result-label{color:#8f5d24;font-size:13px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.result-main{font-family:var(--serif);font-size:clamp(58px,8vw,104px);line-height:.82;letter-spacing:-.075em;margin:16px 0 8px}.result-sub{color:#514a42;font-size:18px;line-height:1.45;max-width:520px}.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:24px 0}.metric{border:1px solid rgba(0,0,0,.10);border-radius:20px;padding:16px;background:rgba(255,255,255,.45)}.metric b{display:block;font-family:var(--serif);font-size:32px;line-height:.92;letter-spacing:-.055em}.metric span{display:block;margin-top:6px;color:#635b52;font-size:13px;font-weight:750}.agent-picks{display:grid;gap:8px;margin-top:16px}.agent-pick{border-radius:16px;background:rgba(0,0,0,.06);padding:12px 14px;color:#423b34;font-size:14px;line-height:1.35}.agent-pick b{color:#171411}.risk-note{margin-top:16px;color:#635b52;font-size:13px;line-height:1.45}.assumption{margin-top:18px;color:var(--muted);font-size:13px;line-height:1.45}
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{border-top:1px solid var(--line2);padding-top:18px}.step b{display:block;color:var(--gold);margin-bottom:12px}.step h3{font-family:var(--serif);font-size:34px;line-height:.9;letter-spacing:-.055em;margin-bottom:10px}.step p{color:var(--muted);font-size:16px;line-height:1.42}
 
   .portraits{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}.portrait{position:relative;overflow:hidden;border-radius:24px;border:1px solid var(--line);aspect-ratio:4/5;background:#111}.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);opacity:.84}.portrait span{position:absolute;left:16px;right:16px;bottom:16px;font-family:var(--serif);font-size:26px;font-weight:700;line-height:.95;letter-spacing:-.05em;text-shadow:0 2px 20px #000}
@@ -69,7 +70,7 @@
   .cta{padding:118px 0;text-align:center}.cta h2{font-family:var(--serif);font-size:clamp(64px,10vw,130px);line-height:.82;letter-spacing:-.075em;margin-bottom:22px}.cta p{font-size:21px;color:var(--muted);max-width:640px;margin:0 auto 30px;line-height:1.45}
   footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}footer .row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
 
-  @media(max-width:900px){.proofbar,.grid3,.split,.steps,.portraits{grid-template-columns:1fr}.hero{text-align:left}.hero .actions{justify-content:flex-start}.hero h1,.hero-sub,.hero-note{margin-left:0}.proofbar{border-radius:20px}.section-head{text-align:left;margin-left:0}.section-head h2,.section-head p{margin-left:0}.cta{text-align:left}.cta p{margin-left:0}.cta .actions{justify-content:flex-start}section{padding:72px 0}}
+  @media(max-width:900px){.proofbar,.grid3,.split,.steps,.portraits,.calc-shell{grid-template-columns:1fr}.hero{text-align:left}.hero .actions{justify-content:flex-start}.hero h1,.hero-sub,.hero-note{margin-left:0}.proofbar{border-radius:20px}.section-head{text-align:left;margin-left:0}.section-head h2,.section-head p{margin-left:0}.cta{text-align:left}.cta p{margin-left:0}.cta .actions{justify-content:flex-start}section{padding:72px 0}}
 </style>
 </head>
 <body>
@@ -79,6 +80,7 @@
     <a class="brand" href="./index.html">Work Different<span>.</span></a>
     <div class="navlinks">
       <a href="#agents">Agent Team</a>
+      <a href="#calculator">Calculator</a>
       <a href="#offer">Offer</a>
       <a href="agentic-team.html">Blueprint</a>
       <a class="pill" href="mailto:jason@meta57.xyz?subject=Agentic%20Team%20Blueprint&body=I%20want%20to%20explore%20building%20an%20agentic%20AI%20team.%0A%0ACompany%3A%0AWebsite%3A%0ABiggest%20workflow%20leak%3A%0A">Start blueprint</a>
@@ -138,6 +140,80 @@
       <article class="card light"><div class="kicker">Revenue</div><h3>Never lose a warm lead quietly.</h3><p>Agents monitor inbound interest, prepare context-aware replies, schedule next steps, and keep pipeline tasks alive.</p></article>
       <article class="card"><div class="kicker">Operations</div><h3>Turn scattered work into a queue.</h3><p>Emails, docs, voice notes, files, and decisions become structured tasks with owners, deadlines, and escalation paths.</p></article>
       <article class="card"><div class="kicker">Delivery</div><h3>Catch dropped promises before clients do.</h3><p>Agents compare scope, notes, deliverables, and status updates to flag missing handoffs and overdue commitments.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="layer calculator" id="calculator">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">ROI calculator</div>
+      <h2>What would an agent team recover in your business?</h2>
+      <p>Estimate the value of a persistent agent team across labor, follow-up, errors, and missed opportunities. Directional, not a fake promise dressed as math.</p>
+    </div>
+    <div class="calc-shell">
+      <div class="calc-panel">
+        <div class="calc-form" aria-label="Agent team ROI calculator inputs">
+          <div class="field">
+            <label for="workflow"><span>Workflow</span><span id="workflow-label">Sales follow-up</span></label>
+            <select id="workflow">
+              <option value="sales">Sales follow-up / speed-to-lead</option>
+              <option value="support">Customer support / service inbox</option>
+              <option value="ops">Operations / admin document workflow</option>
+              <option value="property">Property management / hospitality</option>
+              <option value="professional">Professional services / client delivery</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="volume"><span>Monthly volume</span><span id="volume-label">400 items</span></label>
+            <input id="volume" type="range" min="50" max="3000" step="50" value="400">
+          </div>
+          <div class="field">
+            <label for="minutes"><span>Minutes per item today</span><span id="minutes-label">12 min</span></label>
+            <input id="minutes" type="range" min="2" max="45" step="1" value="12">
+          </div>
+          <div class="field">
+            <label for="hourly"><span>Fully loaded hourly cost</span><span id="hourly-label">$45/hr</span></label>
+            <input id="hourly" type="range" min="20" max="175" step="5" value="45">
+          </div>
+          <div class="field">
+            <label for="opportunity"><span>Monthly opportunity handled</span><span id="opportunity-label">$50,000</span></label>
+            <input id="opportunity" type="range" min="0" max="500000" step="5000" value="50000">
+          </div>
+          <div class="field">
+            <label for="lift"><span>Opportunity recovered</span><span id="lift-label">6%</span></label>
+            <input id="lift" type="range" min="0" max="15" step="1" value="6">
+          </div>
+          <div class="field">
+            <label for="rework"><span>Monthly error / rework cost</span><span id="rework-label">$2,500</span></label>
+            <input id="rework" type="range" min="0" max="50000" step="500" value="2500">
+          </div>
+          <div class="field">
+            <label for="mode"><span>Agent team mode</span><span id="mode-label">Persistent team</span></label>
+            <select id="mode">
+              <option value="assistive">Assistive copilot</option>
+              <option value="supervised">Supervised workflow agent</option>
+              <option value="persistent" selected>Persistent agent team</option>
+            </select>
+          </div>
+        </div>
+        <p class="assumption">Assumes pilot economics of $2.5k setup plus $3k/mo support/ops. Use this to spot leverage, not to pretend every workflow behaves the same.</p>
+      </div>
+      <div class="calc-panel result-card">
+        <div class="result-label">Estimated monthly value recovered</div>
+        <div class="result-main" id="monthly-value">$5.3k</div>
+        <p class="result-sub" id="result-copy">A persistent team would recover labor capacity, improve follow-up, and reduce rework in this workflow.</p>
+        <div class="metric-grid">
+          <div class="metric"><b id="net-value">$2.3k</b><span>Monthly net after ops</span></div>
+          <div class="metric"><b id="hours-value">52h</b><span>Monthly hours recovered</span></div>
+          <div class="metric"><b id="payback-value">1.1 mo</b><span>Setup payback</span></div>
+          <div class="metric"><b id="roi-value">66%</b><span>First-year ROI</span></div>
+        </div>
+        <div class="result-label">First three agents</div>
+        <div class="agent-picks" id="agent-picks"></div>
+        <p class="risk-note" id="risk-note">Human approval stays required for commitments, refunds, payments, legal/compliance decisions, and anything above the risk threshold.</p>
+        <p style="margin-top:22px"><a class="pill" href="mailto:jason@meta57.xyz?subject=Agentic%20Team%20ROI%20Review&body=I%20ran%20the%20agent%20team%20calculator%20and%20want%20to%20map%20the%20first%203%20agents.%0A%0AWorkflow%3A%0AMonthly%20volume%3A%0ABiggest%20leak%3A%0A">Show me the first 3 agents</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -203,5 +279,69 @@
 <footer class="layer">
   <div class="container"><div class="row"><div>© 2026 Work Different · Agentic systems studio</div><div>Built different. Operated different.</div></div></div>
 </footer>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const fmtMoney = (n) => n >= 1000000 ? '$' + (n/1000000).toFixed(1) + 'M' : n >= 10000 ? '$' + Math.round(n/1000) + 'k' : '$' + Math.round(n).toLocaleString();
+  const fmtBigMoney = (n) => n >= 10000 ? '$' + (n/1000).toFixed(n >= 100000 ? 0 : 1).replace('.0','') + 'k' : '$' + Math.round(n).toLocaleString();
+  const modes = {
+    assistive: {label:'Assistive copilot', auto:.32, error:.18},
+    supervised: {label:'Supervised workflow agent', auto:.52, error:.28},
+    persistent: {label:'Persistent team', auto:.68, error:.38}
+  };
+  const workflows = {
+    sales:{label:'Sales follow-up', volume:400, minutes:12, hourly:45, opportunity:50000, lift:6, rework:2500, copy:'The biggest win is follow-up continuity: faster replies, warmer context, fewer stale opportunities.', agents:[['Scout','finds leads, buying signals, and missing CRM fields'],['Follow-up','drafts replies, schedules next steps, and revives stalled conversations'],['Coordinator','updates CRM, flags next actions, and asks humans for approvals']]},
+    support:{label:'Support inbox', volume:1200, minutes:8, hourly:32, opportunity:0, lift:0, rework:4000, copy:'The biggest win is triage and consistency: faster first responses, fewer repeats, cleaner escalation.', agents:[['Triage','classifies issues, checks history, and routes by urgency'],['Resolver','drafts answers and executes approved helpdesk actions'],['Reporter','finds repeat issues and turns them into fixes or macros']]},
+    ops:{label:'Ops/admin', volume:900, minutes:10, hourly:38, opportunity:0, lift:0, rework:6000, copy:'The biggest win is turning documents, emails, and scattered tasks into a clean operating queue.', agents:[['Intake','reads emails, forms, PDFs, and extracts important fields'],['Processor','updates systems of record and asks for missing info'],['Auditor','checks exceptions, edge cases, and weekly drift']]},
+    property:{label:'Property / hospitality', volume:650, minutes:14, hourly:35, opportunity:30000, lift:4, rework:7500, copy:'The biggest win is never losing a guest, owner, vendor, or maintenance handoff between systems.', agents:[['Guest Agent','handles guest questions, check-in details, and follow-up drafts'],['Ops Agent','routes maintenance, vendor updates, and owner notifications'],['Audit Agent','watches exceptions, reviews, refunds, and unresolved promises']]},
+    professional:{label:'Client delivery', volume:220, minutes:24, hourly:85, opportunity:75000, lift:5, rework:9000, copy:'The biggest win is delivery control: fewer missed promises, better prep, and cleaner client communication.', agents:[['Prep Agent','summarizes client context, open loops, and next decisions'],['Delivery Agent','tracks scope, commitments, deadlines, and handoffs'],['QA Agent','checks work against promises before clients have to ask']]}
+  };
+  function setWorkflowDefaults(key){
+    const w = workflows[key];
+    ['volume','minutes','hourly','opportunity','lift','rework'].forEach(id => $(id).value = w[id]);
+    calculate();
+  }
+  function calculate(){
+    const workflow = workflows[$('workflow').value];
+    const mode = modes[$('mode').value];
+    const volume = +$('volume').value;
+    const minutes = +$('minutes').value;
+    const hourly = +$('hourly').value;
+    const opportunity = +$('opportunity').value;
+    const liftPct = +$('lift').value;
+    const rework = +$('rework').value;
+    const monthlyHours = volume * minutes / 60;
+    const hoursRecovered = monthlyHours * mode.auto;
+    const laborRecovered = hoursRecovered * hourly;
+    const opportunityRecovered = opportunity * (liftPct / 100);
+    const reworkRecovered = rework * mode.error;
+    const monthlyValue = laborRecovered + opportunityRecovered + reworkRecovered;
+    const setup = 2500;
+    const monthlyOps = 3000;
+    const monthlyNet = monthlyValue - monthlyOps;
+    const firstYearCost = setup + monthlyOps * 12;
+    const firstYearValue = monthlyValue * 12;
+    const roi = ((firstYearValue - firstYearCost) / firstYearCost) * 100;
+    const payback = monthlyNet > 0 ? setup / monthlyNet : Infinity;
+
+    $('workflow-label').textContent = workflow.label;
+    $('volume-label').textContent = volume.toLocaleString() + ' items';
+    $('minutes-label').textContent = minutes + ' min';
+    $('hourly-label').textContent = '$' + hourly + '/hr';
+    $('opportunity-label').textContent = fmtMoney(opportunity);
+    $('lift-label').textContent = liftPct + '%';
+    $('rework-label').textContent = fmtMoney(rework);
+    $('mode-label').textContent = mode.label;
+    $('monthly-value').textContent = fmtBigMoney(monthlyValue);
+    $('net-value').textContent = monthlyNet >= 0 ? fmtBigMoney(monthlyNet) : '−' + fmtBigMoney(Math.abs(monthlyNet));
+    $('hours-value').textContent = Math.round(hoursRecovered).toLocaleString() + 'h';
+    $('payback-value').textContent = isFinite(payback) ? payback.toFixed(1) + ' mo' : 'Needs scale';
+    $('roi-value').textContent = Math.round(roi) + '%';
+    $('result-copy').textContent = workflow.copy;
+    $('agent-picks').innerHTML = workflow.agents.map(([name, desc]) => `<div class="agent-pick"><b>${name}</b> — ${desc}</div>`).join('');
+  }
+  $('workflow').addEventListener('change', (e) => setWorkflowDefaults(e.target.value));
+  ['volume','minutes','hourly','opportunity','lift','rework','mode'].forEach(id => $(id).addEventListener('input', calculate));
+  calculate();
+</script>
 </body>
 </html>
