@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Work Different AI — Agentic Operating Dashboard</title>
+<style>
+:root{
+  --bg:#050507; --bg2:#08090a; --panel:#0f1011; --panel2:#15161a; --surface:#191a1f;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --text:#f7f8f8; --muted:#a8afbb; --soft:#68707d;
+  --violet:#7170ff; --violet2:#5e6ad2; --cyan:#22d3ee; --green:#34d399;
+  --gold:#d9a76b; --rose:#fb7185; --orange:#fb923c;
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth;background:var(--bg)}
+body{min-height:100vh;background:radial-gradient(circle at 22% 0%,rgba(113,112,255,.25),transparent 28%),radial-gradient(circle at 84% 12%,rgba(34,211,238,.14),transparent 24%),linear-gradient(180deg,#050507 0%,#08090a 42%,#030304 100%);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(180deg,#000 0%,transparent 78%);opacity:.55}
+.shell{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:28px 28px 80px}.nav{height:56px;display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:18px;background:rgba(10,10,12,.58);backdrop-filter:blur(18px);padding:0 18px;margin-bottom:46px;box-shadow:0 20px 80px rgba(0,0,0,.35)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:620;letter-spacing:-.03em}.brandmark{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--violet),var(--cyan));box-shadow:0 0 28px rgba(113,112,255,.45)}
+.navlinks{display:flex;gap:18px;color:var(--muted);font-size:13px}.pill{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line2);border-radius:999px;padding:7px 10px;color:#d7d9ff;background:rgba(113,112,255,.09)}
+.hero{display:grid;grid-template-columns:minmax(0,1.04fr) 420px;gap:34px;align-items:stretch;margin-bottom:28px}.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}.hero-card{border:1px solid var(--line);border-radius:32px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));padding:44px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 30px 110px rgba(0,0,0,.42)}
+h1{font-size:clamp(52px,7.8vw,112px);line-height:.88;letter-spacing:-.075em;font-weight:510;max-width:980px}.gradient{background:linear-gradient(90deg,#fff,#d7d9ff 50%,#90f2ff);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{margin-top:24px;color:#d0d6e0;font-size:20px;line-height:1.48;max-width:760px;letter-spacing:-.02em}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.btn{display:inline-flex;align-items:center;gap:9px;border-radius:999px;padding:12px 18px;font-weight:610;text-decoration:none}.btn.primary{background:var(--violet2);color:white;box-shadow:0 0 40px rgba(113,112,255,.30)}.btn.secondary{border:1px solid var(--line2);color:var(--text);background:rgba(255,255,255,.035)}
+.score-card{border:1px solid var(--line);border-radius:32px;background:radial-gradient(circle at 50% 0%,rgba(113,112,255,.24),transparent 46%),rgba(15,16,17,.74);padding:28px;position:relative;overflow:hidden}.score-card:after{content:"";position:absolute;inset:auto -70px -90px auto;width:220px;height:220px;border-radius:50%;background:rgba(34,211,238,.18);filter:blur(30px)}.status-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.live{display:flex;align-items:center;gap:8px;color:#b7f7d9;font-family:var(--mono);font-size:12px}.dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green);animation:pulse 1.6s infinite}@keyframes pulse{50%{opacity:.35;transform:scale(.72)}}.metric-big{font-size:84px;line-height:.9;letter-spacing:-.08em;font-weight:510}.metric-label{color:var(--muted);font-size:14px;margin-top:12px}.mini-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}.mini{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.035);padding:14px}.mini b{display:block;font-size:22px;letter-spacing:-.04em}.mini span{display:block;color:var(--soft);font-size:12px;margin-top:5px}.section{margin-top:28px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:44px 0 18px}.section-head h2{font-size:34px;letter-spacing:-.045em;font-weight:510}.section-head p{color:var(--muted);max-width:620px;line-height:1.45}.grid{display:grid;gap:14px}.agents{grid-template-columns:repeat(4,minmax(0,1fr))}.agent{position:relative;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.052),rgba(255,255,255,.024));padding:20px;min-height:226px;overflow:hidden;transition:transform .18s ease,border-color .18s ease,background .18s ease}.agent:hover{transform:translateY(-3px);border-color:rgba(113,112,255,.42);background:rgba(255,255,255,.065)}.agent:before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--accent)}.agent .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.avatar{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--accent),rgba(255,255,255,.16));box-shadow:0 0 30px color-mix(in srgb,var(--accent),transparent 70%)}.tag{font-family:var(--mono);font-size:10px;text-transform:uppercase;color:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 7px}.agent h3{font-size:22px;letter-spacing:-.04em;font-weight:590;margin-bottom:8px}.agent p{color:#c5cad2;font-size:14px;line-height:1.45}.agent ul{list-style:none;display:grid;gap:7px;margin-top:16px}.agent li{color:var(--muted);font-size:12px}.agent li:before{content:"//";color:var(--accent);margin-right:6px;font-family:var(--mono)}
+.diagram{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:14px}.map{border:1px solid var(--line);border-radius:28px;background:#07101a;padding:14px;min-height:560px;overflow:hidden}.map svg{width:100%;height:100%;min-height:532px;display:block}.node-rect{fill:#0f172a;stroke:rgba(255,255,255,.12);stroke-width:1.2}.node-title{font:600 14px var(--sans);fill:#f7f8f8}.node-sub{font:400 10px var(--mono);fill:#94a3b8}.flow{stroke:#64748b;stroke-width:1.3;fill:none;marker-end:url(#arrow)}.flow.hot{stroke:#7170ff}.flow.safe{stroke:#34d399;stroke-dasharray:4 4}.orbit{fill:none;stroke:rgba(113,112,255,.28);stroke-width:1;stroke-dasharray:6 8}.console{border:1px solid var(--line);border-radius:28px;background:rgba(15,16,17,.76);padding:22px}.console h3{font-size:24px;letter-spacing:-.04em;margin-bottom:12px}.feed{display:grid;gap:10px;margin-top:18px}.event{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.035)}.event .mono{font-family:var(--mono);font-size:11px;color:var(--cyan);margin-bottom:5px}.event p{font-size:13px;color:#cfd5df;line-height:1.38}.stack{grid-template-columns:repeat(3,minmax(0,1fr))}.stack-card{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.035);padding:22px}.stack-card .num{font-family:var(--mono);font-size:12px;color:var(--violet);margin-bottom:16px}.stack-card h3{font-size:22px;letter-spacing:-.04em;margin-bottom:8px}.stack-card p{font-size:14px;color:var(--muted);line-height:1.5}.permission{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}.perm{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));padding:22px}.perm .status{font-family:var(--mono);font-size:11px;text-transform:uppercase;margin-bottom:16px}.perm h3{font-size:25px;letter-spacing:-.05em;margin-bottom:8px}.perm p{color:var(--muted);font-size:14px;line-height:1.48}.ok{color:var(--green)}.warn{color:var(--gold)}.stop{color:var(--rose)}
+.cta-panel{margin-top:42px;border:1px solid rgba(113,112,255,.32);border-radius:34px;background:radial-gradient(circle at 30% 0%,rgba(113,112,255,.22),transparent 35%),linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.025));padding:34px;display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center}.cta-panel h2{font-size:48px;letter-spacing:-.065em;line-height:.96;font-weight:510}.cta-panel p{color:#d0d6e0;margin-top:14px;line-height:1.48}.audit{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:18px;padding:18px;background:#08090a;line-height:1.7}.footer{margin-top:36px;color:var(--soft);font-size:12px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.accent-cyan{--accent:var(--cyan)}.accent-green{--accent:var(--green)}.accent-violet{--accent:var(--violet)}.accent-gold{--accent:var(--gold)}.accent-rose{--accent:var(--rose)}.accent-orange{--accent:var(--orange)}
+@media(max-width:1100px){.hero,.diagram,.cta-panel{grid-template-columns:1fr}.agents{grid-template-columns:repeat(2,1fr)}.stack,.permission{grid-template-columns:1fr}}@media(max-width:680px){.shell{padding:18px}.navlinks{display:none}.hero-card{padding:28px}.agents{grid-template-columns:1fr}h1{font-size:52px}.metric-big{font-size:64px}.section-head{display:block}.section-head p{margin-top:10px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="nav">
+    <div class="brand"><div class="brandmark"></div><span>Work Different AI</span></div>
+    <div class="navlinks"><span>Agentic Operating Layer</span><span>Memory</span><span>Approvals</span><span>Receipts</span></div>
+    <div class="pill">Live demo system</div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-card">
+      <div class="kicker">Inside a real AI operating team</div>
+      <h1><span class="gradient">Your business does not need another chatbot.</span><br>It needs an agent stack.</h1>
+      <p class="lead">This is the Work Different AI operating dashboard: a live-style view of how specialized agents, memory, tools, and human approval gates turn scattered work into a managed system.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#agent-map">Explore the agent map →</a>
+        <a class="btn secondary" href="#permission-model">See the safety model</a>
+      </div>
+    </div>
+    <aside class="score-card">
+      <div class="status-row"><div class="live"><span class="dot"></span> SYSTEM ONLINE</div><div class="pill">Supervised autonomy</div></div>
+      <div class="metric-big">8</div>
+      <div class="metric-label">specialist lanes around one operator</div>
+      <div class="mini-metrics">
+        <div class="mini"><b>24/7</b><span>watching only what matters</span></div>
+        <div class="mini"><b>0</b><span>external sends without approval</span></div>
+        <div class="mini"><b>3</b><span>memory layers: files, sessions, tools</span></div>
+        <div class="mini"><b>1</b><span>front door for Jason</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Specialized agents. Clear lanes. No chaos.</h2><p>Each agent is narrow enough to trust, useful enough to matter, and routed through human approval when reputation, money, privacy, or outbound messaging is on the line.</p></div>
+    <div class="grid agents">
+      <article class="agent accent-cyan"><div class="top"><div class="avatar"></div><span class="tag">front door</span></div><h3>Hermes</h3><p>The fast intake and routing layer. Inspects, acts, verifies, and leaves receipts.</p><ul><li>Telegram / WhatsApp / local tools</li><li>files, browser, Gmail, cron</li><li>routes to the right specialist</li></ul></article>
+      <article class="agent accent-violet"><div class="top"><div class="avatar"></div><span class="tag">funnel</span></div><h3>FunnelOps57</h3><p>Runs the Work Different AI masterclass funnel from live data, not guesses.</p><ul><li>leads + conversion checks</li><li>copy/config drafts</li><li>approval before live changes</li></ul></article>
+      <article class="agent accent-orange"><div class="top"><div class="avatar"></div><span class="tag">growth</span></div><h3>Signal</h3><p>Turns raw ideas into campaign assets: hooks, posts, emails, and content systems.</p><ul><li>AI employee category strategy</li><li>carousels + captions</li><li>campaign continuity</li></ul></article>
+      <article class="agent accent-gold"><div class="top"><div class="avatar"></div><span class="tag">voice</span></div><h3>Author</h3><p>Protects the human voice so the brand sounds sharp, true, and not AI-polished to death.</p><ul><li>emails + landing copy</li><li>essays + proposals</li><li>voice preservation</li></ul></article>
+      <article class="agent accent-green"><div class="top"><div class="avatar"></div><span class="tag">build</span></div><h3>Forge</h3><p>Packages reliable digital employees for client installs: scoped, isolated, tested.</p><ul><li>agent identity + permissions</li><li>MCP/tool manifests</li><li>smoke tests + handoff docs</li></ul></article>
+      <article class="agent accent-rose"><div class="top"><div class="avatar"></div><span class="tag">finance</span></div><h3>Ledger57</h3><p>The CFO/bookkeeper lane for household and business money, decisions, and cashflow.</p><ul><li>finance database source of truth</li><li>scenario calculations</li><li>no money moves without approval</li></ul></article>
+      <article class="agent accent-gold"><div class="top"><div class="avatar"></div><span class="tag">private ea</span></div><h3>Malu</h3><p>Michelle’s discreet EA lane: warm, practical, privacy-first support.</p><ul><li>client/session logistics</li><li>Michelle-private memory</li><li>gentle follow-through</li></ul></article>
+      <article class="agent accent-cyan"><div class="top"><div class="avatar"></div><span class="tag">backup</span></div><h3>H2</h3><p>The backup ops lane: second set of hands, checks, continuity, and receipts.</p><ul><li>light execution</li><li>system checks</li><li>fallback support</li></ul></article>
+    </div>
+  </section>
+
+  <section id="agent-map" class="section diagram">
+    <div class="map">
+      <svg viewBox="0 0 900 560" role="img" aria-label="Agentic operating map">
+        <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs>
+        <ellipse class="orbit" cx="450" cy="282" rx="330" ry="190"/>
+        <path class="flow hot" d="M140 280 C260 180, 350 150, 420 230"/><path class="flow hot" d="M760 280 C640 180, 550 150, 480 230"/>
+        <path class="flow" d="M450 315 C360 360, 280 390, 205 408"/><path class="flow" d="M450 315 C540 360, 620 390, 695 408"/>
+        <path class="flow safe" d="M450 315 C450 390, 450 430, 450 478"/>
+        <g><rect class="node-rect" x="345" y="220" width="210" height="104" rx="18"/><text class="node-title" x="450" y="262" text-anchor="middle">Hermes Front Door</text><text class="node-sub" x="450" y="285" text-anchor="middle">inspect → act → verify → receipt</text></g>
+        <g><rect class="node-rect" x="52" y="230" width="180" height="86" rx="16"/><text class="node-title" x="142" y="265" text-anchor="middle">Jason</text><text class="node-sub" x="142" y="286" text-anchor="middle">voice · decisions · approval</text></g>
+        <g><rect class="node-rect" x="668" y="230" width="180" height="86" rx="16"/><text class="node-title" x="758" y="265" text-anchor="middle">External world</text><text class="node-sub" x="758" y="286" text-anchor="middle">Gmail · Drive · Meta · site</text></g>
+        <g><rect class="node-rect" x="110" y="384" width="190" height="82" rx="16"/><text class="node-title" x="205" y="416" text-anchor="middle">Specialist lanes</text><text class="node-sub" x="205" y="438" text-anchor="middle">funnel · growth · finance · EA</text></g>
+        <g><rect class="node-rect" x="600" y="384" width="190" height="82" rx="16"/><text class="node-title" x="695" y="416" text-anchor="middle">Tool permissions</text><text class="node-sub" x="695" y="438" text-anchor="middle">read first · write gated</text></g>
+        <g><rect class="node-rect" x="342" y="470" width="216" height="70" rx="16"/><text class="node-title" x="450" y="500" text-anchor="middle">Receipts + memory</text><text class="node-sub" x="450" y="520" text-anchor="middle">paths · IDs · links · lessons</text></g>
+      </svg>
+    </div>
+    <aside class="console">
+      <div class="kicker">Operating feed</div><h3>What prospects should notice</h3>
+      <div class="feed">
+        <div class="event"><div class="mono">01 / NOT A CHATBOT</div><p>The system owns repeatable work: scanning, drafting, checking, reminding, reporting.</p></div>
+        <div class="event"><div class="mono">02 / NOT FULL AUTOPILOT</div><p>Risky actions stop at an approval gate: external sends, payments, live config, production changes.</p></div>
+        <div class="event"><div class="mono">03 / BUILT FROM LANES</div><p>Each specialist sees what it needs and stays out of what it should not touch.</p></div>
+        <div class="event"><div class="mono">04 / MEMORY THAT COMPOUNDS</div><p>Preferences, procedures, and solved workflows turn into skills, scripts, and quiet automations.</p></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>The install pattern clients actually need.</h2><p>A prospect does not need eight agents on day one. They need one narrow worker that proves the model, then a system that can expand safely.</p></div>
+    <div class="grid stack">
+      <div class="stack-card"><div class="num">01</div><h3>Map the leak.</h3><p>Find where time, follow-up, money, or reputation is leaking already: inbox, leads, delivery, admin, reporting.</p></div>
+      <div class="stack-card"><div class="num">02</div><h3>Define the employee.</h3><p>Give the agent a job, lane, memory, tools, cadence, forbidden actions, and a receipt format.</p></div>
+      <div class="stack-card"><div class="num">03</div><h3>Launch narrow.</h3><p>Run the manual loop first. Verify outputs. Only automate the parts that prove they behave.</p></div>
+    </div>
+  </section>
+
+  <section id="permission-model" class="section">
+    <div class="section-head"><h2>Permissions are the product.</h2><p>The magic is not the model. The magic is knowing what each agent may read, draft, touch, and never do.</p></div>
+    <div class="permission">
+      <div class="perm"><div class="status ok">Allowed by default</div><h3>Read, summarize, draft.</h3><p>Agents can inspect approved sources, draft emails/docs, create reports, and prepare the next move.</p></div>
+      <div class="perm"><div class="status warn">Approval gate</div><h3>Send, publish, modify.</h3><p>Outbound messages, live funnel edits, calendar changes, cron jobs, and client-facing actions wait for Jason.</p></div>
+      <div class="perm"><div class="status stop">Red lines</div><h3>No secret spaghetti.</h3><p>No exposed tokens, no personal credentials for client installs, no broad autonomy, no private-lane leakage.</p></div>
+    </div>
+  </section>
+
+  <section class="cta-panel">
+    <div><div class="kicker">Masterclass takeaway</div><h2>Build the system beneath the work.</h2><p>The next business edge is not “using AI.” It is installing a managed operating layer: memory, roles, tools, cadence, approvals, and receipts.</p></div>
+    <div class="audit">// WORK DIFFERENT AI<br>agentic systems studio<br><br>first useful worker: 48 hours<br>human approval gates: always on<br>memory: durable<br>scope: narrow first<br>expansion: only after proof</div>
+  </section>
+  <footer class="footer"><span>Work Different AI · Agentic operating systems for modern businesses</span><span>Demo dashboard · no private data shown</span></footer>
+</div>
+</body>
+</html>
